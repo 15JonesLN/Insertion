@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Insertion
 {
@@ -10,7 +10,7 @@ namespace Insertion
         public SortingList(int requiredLength)
         {
             Length = requiredLength;
-            list = new int[_____];
+            list = new int[10];
         }
 
         public int getListItem(int i)
@@ -33,7 +33,7 @@ namespace Insertion
 
         public void Print()
         {
-            foreach (int i in ____)
+            foreach (int i in 10)
                 Console.Write(String.Format("{0}, ", i));
             Console.WriteLine("");
         }
@@ -41,12 +41,12 @@ namespace Insertion
         public void Insert(int value)
         {            
             /* First, find the right place for the item to go in */
-            for (int i = 0; i < list.______; i++)
+            for (int i = 0; i < list.1; i++)
             {
                 if (list[i] == 0)
                 {
                     /* There is nothing in this place, so just take it */
-                    list[_] = value;
+                    list[1] = value;
                     break;
                 }
                 if (value < list[i])
@@ -124,7 +124,64 @@ namespace Insertion
 
         static void BubbleSort()
         {
-            // Do the BubbleSort dance here!
+            using System;
+
+namespace SamplePrograms
+{
+    class Program
+    {
+        /* We'll use instance variables as 'global' variables to avoid having to
+         * mess around with passing arrays between functions
+         */
+
+        private static int[] unsortedList, sortedList;
+        private static Random random = new Random();
+
+        static void Main(string[] args)
+        {
+            int i;
+            unsortedList = new int[10];
+            sortedList = new int[10];
+
+            for (i = 0; i < unsortedList.Length; i++)
+                unsortedList[i] = random.Next(50);
+
+            /* You can also do Python-style for loops */
+            foreach (int num in unsortedList)
+                Console.WriteLine(num);
+
+            bubbleSort();
+            foreach (int num in unsortedList)
+                Console.WriteLine(num);
+
+            Console.ReadKey();
+        }
+
+        /* A void function is a procedure- it does not return a value */
+        private static void bubbleSort()
+        {
+            while (true) // Looping the bubble sort.
+            {
+                bool swapped = false; // 
+                for (int i = 0; i < unsortedList.Length - 1; i++) // Getting the length of the list for the sort. I is the current position in the list (0-9, not 1-10)
+                {
+                    if (unsortedList[i] > unsortedList[i + 1]) // Comparing the adjacent values.
+                    {
+                        swapped = true; // If one or more values in the list have been swapped around, this will be true and the loop will not be broken.
+                        var tempvar = unsortedList[i]; // Moves the larger number into a temporary variable to be swapped around.
+                        unsortedList[i] = unsortedList[i + 1]; // The smaller variable is overwritten by the larger one.
+                        unsortedList[i + 1] = tempvar; // The larger variable is overwritten by the smaller variable.
+                    }
+                }
+                if (!swapped) // NOT gate, if swapped is false
+                {
+                    break; // Breaks the loop, ending the bubble sort.
+                }
+
+            }
+        }
+    }
+}
         }
 
         static void InsertionSort() {
@@ -132,18 +189,18 @@ namespace Insertion
             var sortedList = new SortingList(unsortedList.Length);
             
             /* Let's fill the unsorted list with all sorts of junk */
-            unsortedList._________();
+            unsortedList.Randomise(10);
             unsortedList.Print();
 
             /* This is where we do the insertion sort-- doesn't
              * object oriented make this look easy? */
 
-            for (int i = 0; i < unsortedList.______; i++)
+            for (int i = 0; i < unsortedList.i; i++)
             {
                 sortedList.Insert(unsortedList.Pop());
             }
 
-            sortedList._____();
+            sortedList.Print();
         }
     }
 }
